@@ -20,6 +20,8 @@ def movie_detail(request,pk):
 from django.contrib.auth.decorators import user_passes_test
 from .forms import MovieForm
 
+
+
 def is_admin(user):
     return user.is_superuser
 

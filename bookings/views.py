@@ -15,6 +15,7 @@ from .forms import BookingForm
 def book_ticket(request, pk):
     movie = get_object_or_404(Movie, pk=pk)
 
+
     if request.method == "POST":
         form = BookingForm(request.POST)
         if form.is_valid():
@@ -56,7 +57,16 @@ def my_bookings(request):
 
 def cancel_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    
+    movie = booking.movie
+
+    movie.available_seats += booking.seats
+    movie.save()
+
     booking.delete()
+
+    messages.success(request, "booking cancelled successfully")
+
     return redirect('my_bookings')
 
 
