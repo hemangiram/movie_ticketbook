@@ -7,24 +7,24 @@ Users can register, login, view movies, and book tickets online.
 
 ## 🚀 Features
 
-* User Registration and Login
-* View Available Movies
-* Book Movie Tickets
-* Seat Availability Check
-* View My Bookings
-* Cancel Booking
-* Admin Panel for Movie Management
+- User Registration and Login
+- View Available Movies
+- Book Movie Tickets
+- Seat Availability Check
+- View My Bookings
+- Cancel Booking
+- Admin Panel for Movie Management
 
 ---
 
 ## 🛠️ Technologies Used
 
-* Python
-* Django
-* PostgreSQL / SQLite
-* HTML
-* CSS
-* Bootstrap
+- Python
+- Django
+- PostgreSQL / SQLite
+- HTML
+- CSS
+- Bootstrap
 
 ---
 
@@ -71,7 +71,6 @@ Linux / Mac
 source venv/bin/activate
 ```
 
-
 5️⃣ Install dependencies
 
 ```
@@ -115,21 +114,13 @@ http://127.0.0.1:8000/admin
 
 ---
 
-
-
-* Movie List Page
-* Ticket Booking Page
-* My Bookings Page
-* Admin Dashboard
-
-
-
+- Movie List Page
+- Ticket Booking Page
+- My Bookings Page
+- Admin Dashboard
 
 ## 📌 Future Improvements
 
-* Seat Selection UI
-
+- Seat Selection UI
 
 ---
-
-
