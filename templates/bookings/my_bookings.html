@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3 class="mb-4 text-primary">My Bookings</h3>
+
+<div class="row">
+
+    {% for booking in bookings %}
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+
+                <h5 class="card-title fw-bold">
+                    {{ booking.movie.title }}
+                </h5>
+
+                <p class="mb-1">
+                    <strong>Seats:</strong> {{ booking.seats }}
+                </p>
+
+                <p class="mb-1">
+                    <strong>Total Price:</strong> ₹{{ booking.total_price }}
+                </p>
+
+                <p class="mb-2 text-muted">
+                    <strong>Booked On:</strong> {{ booking.booking_time|date:"d M Y, h:i A" }}
+                </p>
+
+                <hr>
+
+                <!-- Optional Cancel Button -->
+                <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-outline-danger btn-sm">
+                    Cancel Booking
+                </a>
+
+            </div>
+        </div>
+    </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-warning">
+                No bookings yet.
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

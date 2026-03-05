@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4">
+
+                <h3 class="text-center text-primary mb-4">
+                    Book Ticket
+                </h3>
+
+                <div class="mb-3">
+                    <h5 class="fw-bold">{{ movie.title }}</h5>
+                    <p class="mb-1">Price per seat: <strong>₹{{ movie.price }}</strong></p>
+                    <p class="mb-3">Available Seats: <strong>{{ movie.available_seats }}</strong></p>
+                </div>
+
+                <hr>
+
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                       {{ form.errors }}
+                    </div>
+                {% endif %}
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label">Number of Seats</label>
+                        {{ form.seats }}
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">
+                        Confirm Booking
+                    </button>
+                </form>
+
+                <div class="mt-3 text-center">
+                    <a href="{% url 'movie_detail' movie.id %}" class="text-decoration-none">
+                        ← Back to Movie Details
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

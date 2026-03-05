@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4">
+
+                <h4 class="text-center text-primary mb-4">
+                     Add New Movie
+                </h4>
+
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                       {{ form.errors }}
+                    </div>
+                {% endif %}
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        {{ form.title }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        {{ form.description }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Release Date</label>
+                        {{ form.release_date }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Price</label>
+                        {{ form.price }}
+                    </div>
+                     <div class="mb-3">
+                        <label class="form-label">Total Seats</label>
+                        {{ form.total_seats }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Available Seats</label>
+                        {{ form.available_seats }}
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">
+                        Add Movie
+                    </button>
+                </form>
+
+                <div class="mt-3 text-center">
+                    <a href="{% url 'movie_list' %}" class="text-decoration-none">
+                        ← Back to Movies
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
